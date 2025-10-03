@@ -1,0 +1,27 @@
+{
+  "name": "classics-retold",
+  "version": "1.0.0",
+  "type": "module",
+  "description": "A Progressive Web App for reading classic literature with modern retellings",
+  "scripts": {
+    "dev": "vite",
+    "build": "vite build",
+    "preview": "vite preview",
+    "process-epub": "node scripts/process-epub.js",
+    "generate-retellings": "node scripts/generate-retellings.js"
+  },
+  "dependencies": {
+    "react": "^18.3.1",
+    "react-dom": "^18.3.1",
+    "idb": "^8.0.0"
+  },
+  "devDependencies": {
+    "@types/react": "^18.3.3",
+    "@types/react-dom": "^18.3.0",
+    "@vitejs/plugin-react": "^4.3.1",
+    "vite": "^5.4.2",
+    "vite-plugin-pwa": "^0.20.1",
+    "epub2": "^3.0.2",
+    "jsdom": "^24.1.1"
+  }
+}

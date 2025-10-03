@@ -1,0 +1,101 @@
+:root {
+  /* Light Mode */
+  --light-bg: #FFFFFF;
+  --light-text: #1A1A1A;
+  --light-text-secondary: #4A4A4A;
+  --light-accent: #2E5266;
+  --light-accent-hover: #234152;
+  --light-secondary: #6E8898;
+  --light-border: #E0E0E0;
+  --light-shadow: rgba(0, 0, 0, 0.1);
+  --light-overlay: rgba(0, 0, 0, 0.5);
+  --light-highlight: rgba(46, 82, 102, 0.12);
+  
+  /* Dark Mode */
+  --dark-bg: #1A1A1A;
+  --dark-text: #E8E8E8;
+  --dark-text-secondary: #B0B0B0;
+  --dark-accent: #4A90A4;
+  --dark-accent-hover: #5FA8BC;
+  --dark-secondary: #8EA6B3;
+  --dark-border: #333333;
+  --dark-shadow: rgba(0, 0, 0, 0.3);
+  --dark-overlay: rgba(0, 0, 0, 0.7);
+  --dark-highlight: rgba(74, 144, 164, 0.2);
+  
+  /* Sepia Mode */
+  --sepia-bg: #F4F1EA;
+  --sepia-text: #5C4B37;
+  --sepia-text-secondary: #7A6B57;
+  --sepia-accent: #8B7355;
+  --sepia-accent-hover: #6F5D45;
+  --sepia-secondary: #A69580;
+  --sepia-border: #D9D3C6;
+  --sepia-shadow: rgba(92, 75, 55, 0.1);
+  --sepia-overlay: rgba(92, 75, 55, 0.5);
+  --sepia-highlight: rgba(139, 115, 85, 0.15);
+  
+  /* Typography */
+  --font-heading: 'Crimson Text', Georgia, serif;
+  --font-body: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+  --font-reading: 'Crimson Text', Georgia, serif;
+  
+  /* Spacing */
+  --spacing-xs: 0.25rem;
+  --spacing-sm: 0.5rem;
+  --spacing-md: 1rem;
+  --spacing-lg: 1.5rem;
+  --spacing-xl: 2rem;
+  --spacing-2xl: 3rem;
+  
+  /* Transitions */
+  --transition-fast: 150ms ease;
+  --transition-normal: 200ms ease;
+  --transition-slow: 300ms ease;
+}
+
+/* Theme Classes */
+body.light-theme {
+  --bg: var(--light-bg);
+  --text: var(--light-text);
+  --text-secondary: var(--light-text-secondary);
+  --accent: var(--light-accent);
+  --accent-hover: var(--light-accent-hover);
+  --secondary: var(--light-secondary);
+  --border: var(--light-border);
+  --shadow: var(--light-shadow);
+  --overlay: var(--light-overlay);
+  --highlight: var(--light-highlight);
+}
+
+body.dark-theme {
+  --bg: var(--dark-bg);
+  --text: var(--dark-text);
+  --text-secondary: var(--dark-text-secondary);
+  --accent: var(--dark-accent);
+  --accent-hover: var(--dark-accent-hover);
+  --secondary: var(--dark-secondary);
+  --border: var(--dark-border);
+  --shadow: var(--dark-shadow);
+  --overlay: var(--dark-overlay);
+  --highlight: var(--dark-highlight);
+}
+
+body.sepia-theme {
+  --bg: var(--sepia-bg);
+  --text: var(--sepia-text);
+  --text-secondary: var(--sepia-text-secondary);
+  --accent: var(--sepia-accent);
+  --accent-hover: var(--sepia-accent-hover);
+  --secondary: var(--sepia-secondary);
+  --border: var(--sepia-border);
+  --shadow: var(--sepia-shadow);
+  --overlay: var(--sepia-overlay);
+  --highlight: var(--sepia-highlight);
+}
+
+body {
+  background-color: var(--bg);
+  color: var(--text);
+  transition: background-color var(--transition-normal), color var(--transition-normal);
+}

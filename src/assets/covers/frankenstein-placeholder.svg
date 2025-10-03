@@ -1,0 +1,9 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 300 450">
+  <rect width="100%" height="100%" fill="#1a1a1a"/>
+  <rect x="20" y="20" width="260" height="410" fill="#262626" stroke="#4b8b92" stroke-width="4"/>
+  <text x="150" y="140" text-anchor="middle" fill="#e8e8e8" font-family="'Georgia', serif" font-size="28">Frankenstein</text>
+  <text x="150" y="180" text-anchor="middle" fill="#c0c0c0" font-family="'Georgia', serif" font-size="12">or, The Modern Prometheus</text>
+  <text x="150" y="265" text-anchor="middle" fill="#f2f2f2" font-family="'Georgia', serif" font-size="20">Mary Shelley</text>
+  <line x1="60" y1="290" x2="240" y2="290" stroke="#4b8b92" stroke-width="2"/>
+  <text x="150" y="330" text-anchor="middle" fill="#8b7355" font-family="'Georgia', serif" font-size="16">1818</text>
+</svg>

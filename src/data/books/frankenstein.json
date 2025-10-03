@@ -1,0 +1,19 @@
+{
+  "id": "frankenstein",
+  "chapters": [
+    {
+      "id": "letter-1",
+      "title": "Letter 1. To Mrs. Saville, England",
+      "original": "<p>You will rejoice to hear that no disaster has accompanied the commencement of an enterprise which you have regarded with such evil forebodings.</p><p>I arrived here yesterday, and my first task is to assure my dear sister of my welfare and increasing confidence in the success of my undertaking.</p>",
+      "modern": "<p>Good news—my voyage has started without any of the disasters you worried about.</p><p>I reached port yesterday, and I wanted to write at once to let you know I am safe and feeling more optimistic about the expedition every day.</p>",
+      "passages": [
+        {
+          "id": "letter-1-opening",
+          "originalText": "You will rejoice to hear that no disaster has accompanied the commencement of an enterprise which you have regarded with such evil forebodings.",
+          "modernText": "You'll be glad to know that my voyage has begun without the disasters you feared.",
+          "context": "<p>You will rejoice to hear that no disaster has accompanied the commencement of an enterprise which you have regarded with such evil forebodings.</p>"
+        }
+      ]
+    }
+  ]
+}
