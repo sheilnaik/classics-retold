@@ -166,6 +166,37 @@ Create a JSON file in `/public/data/books/` following this structure:
 
 ## Creating Modern Retellings
 
+### Automated Translation Pipeline (Recommended)
+
+The app includes an automated translation pipeline powered by GPT-5-mini that translates classic text to modern English with proper context awareness.
+
+**Quick Start:**
+
+```bash
+# Install dependencies
+npm install
+
+# Set up your OpenAI API key
+cp .env.example .env
+# Edit .env and add your API key
+
+# Estimate cost for a book
+npm run preprocess frankenstein -- --estimate
+
+# Translate the book
+npm run preprocess frankenstein -- --translate
+```
+
+**Features:**
+- 🎯 Context-aware translation (paragraph + neighboring sentences)
+- 📖 Book name included in prompts for better quality
+- 💰 Cost estimation before translation
+- 🔄 Automatic retry on failures
+- 📊 Real-time progress tracking
+- 🗺️ Sentence-level alignment mapping
+
+**See [TRANSLATION_PIPELINE.md](./TRANSLATION_PIPELINE.md) for full documentation.**
+
 ### Manual Approach
 
 1. Read each chapter carefully
