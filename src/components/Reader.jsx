@@ -15,7 +15,8 @@ import {
 import {
   debounce,
   scrollToPosition,
-  getCurrentScrollPosition
+  getCurrentScrollPosition,
+  findModernTranslation
 } from '../utils/text-utils';
 import './Reader.css';
 
@@ -68,7 +69,7 @@ export default function Reader({ book, initialChapterId, onBack, theme, onThemeC
     if (!contentRef.current || showModern) return;
 
     const paragraphs = contentRef.current.querySelectorAll('.reader-chapter-content p');
-    
+
     paragraphs.forEach(paragraph => {
       // Skip if already processed
       if (paragraph.querySelector('.sentence-span')) return;
@@ -76,11 +77,15 @@ export default function Reader({ book, initialChapterId, onBack, theme, onThemeC
       const text = paragraph.innerHTML;
       // Split by sentence endings, keeping the punctuation
       const sentences = text.match(/[^.!?]+[.!?]+/g);
-      
+
       if (sentences && sentences.length > 1) {
         const wrappedHtml = sentences
-          .map(sentence => `<span class="sentence-span">${sentence}</span>`)
-          .join('');
+          .map((sentence, index) => {
+            // Trim leading whitespace from sentences (except first)
+            const trimmedSentence = index > 0 ? sentence.trimLeft() : sentence;
+            return `<span class="sentence-span">${trimmedSentence}</span>`;
+          })
+          .join(' '); // Add space between sentences to maintain readability
         paragraph.innerHTML = wrappedHtml;
       }
     });
@@ -91,36 +96,32 @@ export default function Reader({ book, initialChapterId, onBack, theme, onThemeC
     const handleSentenceClick = (e) => {
       // Only handle clicks in original mode
       if (showModern) return;
-      
+
       const target = e.target;
       const sentenceSpan = target.closest('.sentence-span');
-      
+
       if (!sentenceSpan) return;
 
       const clickedSentence = sentenceSpan.textContent.trim();
 
-      // Find if this sentence has a translation
-      if (currentChapter?.passages) {
-        for (const passage of currentChapter.passages) {
-          const normalizedPassage = passage.originalText.toLowerCase().replace(/[^\w\s]/g, '');
-          const normalizedSentence = clickedSentence.toLowerCase().replace(/[^\w\s]/g, '');
-          
-          // Check if sentence matches or is part of this passage
-          if (normalizedPassage.includes(normalizedSentence) || 
-              normalizedSentence.includes(normalizedPassage)) {
-            setHighlightPopup({ passage });
-            return;
+      // Try to find the modern translation from the chapter text
+      const translation = findModernTranslation(
+        clickedSentence,
+        currentChapter?.original,
+        currentChapter?.modern
+      );
+
+      if (translation) {
+        setHighlightPopup({ passage: translation });
+      } else {
+        // Fallback - show the sentence without translation
+        setHighlightPopup({
+          passage: {
+            originalText: clickedSentence,
+            modernText: "Translation not found. Try selecting a longer phrase or a complete sentence."
           }
-        }
+        });
       }
-      
-      // No translation available - show placeholder message
-      setHighlightPopup({ 
-        passage: {
-          originalText: clickedSentence,
-          modernText: "Translation coming soon! We're working on adding more translations to help you understand the original text."
-        }
-      });
     };
 
     const contentElement = contentRef.current;
